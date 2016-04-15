@@ -1,0 +1,266 @@
+<head>
+  <title>simple</title>
+</head>
+
+<body>
+    {{> header}}
+
+    
+</body>
+
+<template name="header">
+  <nav class="navbar navbar-default" role="banner">
+    <div class="container">
+      <div class="navbar-header" >
+          <br />
+          <img src="artigenLogo.jpg" alt="Artigen" width="100px" height="100px" /> 
+          
+      </div>
+
+      <div style="margin-top: 20px; position:absolute; margin-left: 120px; font-size: 80px; font-style: bold; color: grey;">Artigen Corporation</div>
+      <span class="sr-only">ARTIGEN Will Help You Use Technology To Enable The Business of Tomorrow</span>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
+      </div>
+      <div class="menu-primary-navigation-container">
+          <ul id="menu-primary-navigation" class="nav navbar-nav navbar-right">
+            <li id="menu-item-168" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168">
+                <a href="{{pathFor route='workPage'}}">Work</a>
+              </li>
+            <li id="menu-item-7" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7">
+              <a href="http://studiompls.com/about/">About</a>
+            </li>
+            <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+              <a href="http://studiompls.com/contact/">Contact</a>
+            </li>
+            <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+              <a href="{{pathFor route='signupForm'}}">Sign Up</a>
+            </li>
+            {{#if currentUser}}
+              {{> logoutForm}}
+            {{else}}
+            <li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+              <a href="{{pathFor route='loginForm'}}">Log In</a>
+            </li>
+            {{/if}}
+          </ul>
+        </div>
+    </div>
+  </nav>
+</template>
+
+<template name="mainPage">
+  <p>This is the Main Page</p>
+</template>
+
+<template name="navigation">
+    {{> clickMe}}
+</template>
+
+<template name="footer">
+  <div class="footer">
+    <hr />
+    <p>Copyright &copy; Artigen, 2016.</p>
+  </div>
+</template>
+
+<template name="logoutForm">
+    <form id="logout-form" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+      <b><u>{{currentUser.profile.name}}</u></b><button class="btn btn-danger" type="submit">Log Out</button>
+    </form>
+</template>
+
+<template name="loginForm">
+<form id="login-form">
+  <h2>Log In</h2>
+
+    <label for="login-username">Username</label>
+    <input type="text" id="login-username" class="form-control" placeholder="Username" /><br />
+
+    <label for="login-password">Password</label>
+    <input type="text" id="login-password" class="form-control" placeholder="Password" /><br />
+
+    <button class="btn btn-primary" type="submit">Log In</button>
+
+    <br />
+
+    <label>Don't have an account?</label>
+    <a href="{{pathFor route='signupForm'}}">Sign Up</a>
+
+  </form>
+</template>
+
+
+<template name="signupForm">
+   <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+        
+              <form class="form-horizontal" id="signup-form">
+              <fieldset>
+                <div id="legend">
+                  <legend class="">Register</legend>
+                </div>
+                <div class="control-group">
+                  <label class="signup-username" for="username">Username</label>
+                  <div class="controls">
+                    <input type="text" id="signup-username" name="username" placeholder="Username" class="form-control input-lg">
+                    <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <label class="control-label" for="signup-email">E-mail</label>
+                  <div class="controls">
+                    <input type="email" id="signup-email" name="email" placeholder="Email" class="form-control input-lg">
+                    <p class="help-block">Please provide your E-mail</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <label class="control-label" for="signup-password">Password</label>
+                  <div class="controls">
+                    <input type="password" id="signup-password" name="password" placeholder="Password" class="form-control input-lg">
+                    <p class="help-block">Password should be at least 6 characters</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <label class="control-label" for="signup-name">Full Name</label>
+                  <div class="controls">
+                    <input type="password" id="signup-name" name="signup-name" placeholder="Full Name" class="form-control input-lg">
+                    <p class="help-block">Please provide your full name</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <!-- Button -->
+                  <div class="controls">
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+        
+        </div> 
+      </div>
+    </div>
+</template>
+
+
+<template name="workPage">
+  <div class="bgcontainer">
+    <div class="container main-home">
+        <div class="aq-template-wrapper aq_row">
+          <div class="aq-block aq-block-pg_shop_block aq_span12 aq-first clearfix">
+              
+              <a href="{{pathFor route='clickMe'}}" id="clickMe-app">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3" >
+                    <div class="panel price panel-red">
+                      <div class="panel-heading  text-center">
+                      <h3>PRO PLAN</h3>
+                      </div>
+                      <div class="panel-body text-center">
+                        <p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
+                      </div>
+                      <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
+                        <li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
+                      </ul>
+                      <div class="panel-footer">
+                        <a class="btn btn-lg btn-block btn-danger" href="#">Sign Up</a>
+                      </div>
+                    </div>
+                </div>
+              </a>
+              
+              <a href="{{pathFor route='toDoList'}}" id="todoList-app">
+                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                  <div class="panel price panel-blue">
+                    <div class="panel-heading arrow_box text-center">
+                    <h3>DEV PLAN</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                      <p class="lead" style="font-size:40px"><strong>$20 / month</strong></p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                      <li class="list-group-item"><i class="icon-ok text-info"></i> Personal use</li>
+                      <li class="list-group-item"><i class="icon-ok text-info"></i> Unlimited projects</li>
+                      <li class="list-group-item"><i class="icon-ok text-info"></i> 27/7 support</li>
+                    </ul>
+                    <div class="panel-footer">
+                      <a class="btn btn-lg btn-block btn-info" href="#">Sign Up</a>
+                    </div>
+                  </div>
+                </div>
+              </a>
+        
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="panel price panel-green">
+                <div class="panel-heading arrow_box text-center">
+                <h3>FREE PLAN</h3>
+                </div>
+                <div class="panel-body text-center">
+                  <p class="lead" style="font-size:40px"><strong>$0 / month</strong></p>
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> Personal use</li>
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> Unlimited projects</li>
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> 27/7 support</li>
+                </ul>
+                <div class="panel-footer">
+                  <a class="btn btn-lg btn-block btn-success" href="#">Sign Up</a>
+                </div>
+              </div>
+            </div>
+        
+            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+              <div class="panel price panel-grey">
+                <div class="panel-heading arrow_box text-center">
+                <h3>FREE PLAN</h3>
+                </div>
+                <div class="panel-body text-center">
+                  <p class="lead" style="font-size:40px"><strong>$0 / month</strong></p>
+                </div>
+                <ul class="list-group list-group-flush text-center">
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> Personal use</li>
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> Unlimited projects</li>
+                  <li class="list-group-item"><i class="icon-ok text-success"></i> 27/7 support</li>
+                </ul>
+                <div class="panel-footer">
+                  <a class="btn btn-lg btn-block btn-primary" href="#">Sign Up</a>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+</template>
+
+
+<!-- Click Me app -->
+<template name="clickMe">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<!-- ToDo List App -->
+<template name="toDoList">
+  <div class="container">
+      <h1>ToDo List</h1>
+
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="task">
+  <li>{{text}}</li>
+</template>
